@@ -34,3 +34,7 @@ class UserModel(db.Model):
             return None  # invalid token
         user = UserModel.query.get(data['id'])
         return user
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
